@@ -15,10 +15,13 @@ class Product(models.Model):
     stock_limit = models.PositiveIntegerField(default=5)
     price = models.FloatField(default=0)
     sale_price = models.FloatField(default=0)
-    sale_start_date = models.DateTimeField(null=True, blank=True)
-    sale_end_date = models.DateTimeField(null=True, blank=True)
+    sale_start_date = models.DateField(null=True, blank=True)
+    sale_end_date = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 
 class ProductImage(models.Model):
